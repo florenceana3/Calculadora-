@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="style.css">
+<style type="text/css" id="dcoder_stylesheet">* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.calculator {
+    width: 300px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+#display {
+    width: 100%;
+    height: 50px;
+    background-color: #222;
+    color: #fff;
+    text-align: right;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #555;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #777;
+}
+
+button:nth-child(20) {
+    background-color: #4caf50;
+}
+
+button:nth-child(20):hover {
+    background-color: #45a049;
+}
+/* Remova o estilo verde do botão sin */
+button.sin {
+    /* Remova a linha abaixo, se houver */
+    /* background-color: green; */
+}
+
+/* Adicione o estilo verde ao botão igual */
+button.igual {
+    background-color: green;
+    color: white; /* se necessário, para o contraste */
+}</style></head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="insert('(')">(</button>
+            <button onclick="insert(')')">)</button>
+            <button onclick="insert('%')">%</button>
+
+            <button onclick="insert('7')">7</button>
+            <button onclick="insert('8')">8</button>
+            <button onclick="insert('9')">9</button>
+            <button onclick="insert('/')">/</button>
+            <button onclick="sqrt()">√</button>
+
+            <button onclick="insert('4')">4</button>
+            <button onclick="insert('5')">5</button>
+            <button onclick="insert('6')">6</button>
+            <button onclick="insert('*')">*</button>
+            <button onclick="power()">x²</button>
+
+            <button onclick="insert('1')">1</button>
+            <button onclick="insert('2')">2</button>
+            <button onclick="insert('3')">3</button>
+            <button onclick="insert('-')">-</button>
+            <button onclick="sin()">sin</button>
+
+            <button onclick="insert('0')">0</button>
+            <button onclick="insert('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="insert('+')">+</button>
+            <button onclick="cos()">cos</button>
+
+            <button onclick="tan()">tan</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+<script type="text/javascript" id="dcoder_script">function insert(value) {
+    document.getElementById("display").value += value;
+}
+
+function clearDisplay() {
+    document.getElementById("display").value = "";
+}
+
+function deleteLast() {
+    const display = document.getElementById("display");
+    display.value = display.value.slice(0, -1);
+}
+
+function calculate() {
+    try {
+        const display = document.getElementById("display");
+        display.value = eval(display.value);
+    } catch (e) {
+        alert("Expressão inválida");
+    }
+}
+
+function sqrt() {
+    const display = document.getElementById("display");
+    display.value = Math.sqrt(eval(display.value));
+}
+
+function power() {
+    const display = document.getElementById("display");
+    display.value = Math.pow(eval(display.value), 2);
+}
+
+function sin() {
+    const display = document.getElementById("display");
+    display.value = Math.sin(eval(display.value) * Math.PI / 180);
+}
+
+function cos() {
+    const display = document.getElementById("display");
+    display.value = Math.cos(eval(display.value) * Math.PI / 180);
+}
+
+function tan() {
+    const display = document.getElementById("display");
+    display.value = Math.tan(eval(display.value) * Math.PI / 180);
+}
+function sin() {
+    const display = document.getElementById("display");
+    display.value = Math.sin(eval(display.value) * Math.PI / 180);
+}
+
+function cos() {
+    const display = document.getElementById("display");
+    display.value = Math.cos(eval(display.value) * Math.PI / 180);
+}
+
+function tan() {
+    const display = document.getElementById("display");
+    display.value = Math.tan(eval(display.value) * Math.PI / 180);
+}</script></body></html>
